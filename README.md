@@ -260,8 +260,83 @@ sudo Pi_hole_youtube_blocklist/scripts/youtube-ads.sh
 **NOTE** 
 If you used all of the block lists above, be prepared to troubleshoot apps or websites that don't work because of blocked domains. If you run across a non-functional site or app, review the Pi-Hole logs for blocked domains and try whitelisting one at a time and re-testing your site/app to see what fixes the problem.
 
-21. 
+21. We start with Argo Tunnel and cloudflared installation. Install both of these on our Pi-Hole server (make sure you note the directory you're in before running the following commands!). 
 
+Downloading the precompiled binary and copying it to the **/usr/local/bin/** directory to allow execution by the cloudflared user. Proceed to run the binary with the -v flag to check it is all working:
+```
+wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-arm.tgz
+tar -xvzf cloudflared-stable-linux-arm.tgz
+sudo cp ./cloudflared /usr/local/bin
+sudo chmod +x /usr/local/bin/cloudflared
+cloudflared -v
+```
+Create a cloudflared user to run the daemon:
+```
+sudo useradd -s /usr/sbin/nologin -r -M cloudflared
+```
+Proceed to create a configuration file for cloudflared by copying the following in to **/etc/default/cloudflared**. This file contains the command-line options that get passed to cloudflared on startup. Note we're not using the default port 53 that DNS uses for a reason (because Pi-Hole is already using that port).
+
+```
+# Commandline args for cloudflared
+CLOUDFLARED_OPTS=--port 54 --upstream https://1.1.1.1/.well-known/dns-query --upstream https://1.0.0.1/.well-known/dns-query
+
+```
+Update the permissions for the configuration file and cloudflared binary to allow access for the cloudflared user:
+```
+sudo chown cloudflared:cloudflared /etc/default/cloudflared
+sudo chown cloudflared:cloudflared /usr/local/bin/cloudflared
+```
+Then create the systemd script by copying the following into **/etc/systemd/system/cloudflared.service**. This will control the running of the service and allow it to run on startup:
+```
+sudo nano /etc/systemd/system/cloudflared.service
+```
+```
+[Unit]
+Description=cloudflared DNS over HTTPS proxy
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=cloudflared
+EnvironmentFile=/etc/default/cloudflared
+ExecStart=/usr/local/bin/cloudflared proxy-dns $CLOUDFLARED_OPTS
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+```
+```
+CTRL + X then Y and Enter
+```
+
+Enable the systemd service to run on startup, then start the service and check its status:
+```
+sudo systemctl enable cloudflared
+sudo systemctl start cloudflared
+sudo systemctl status cloudflared
+```
+
+Next, we need to configure Pi-Hole to use this new functionality.
+
+22. We need to edit some things to put this all to work. We'll start by modifying the following file. 
+
+```
+sudo nano /etc/dnsmasq.d/01-pihole.conf
+```
+In this file, if we want to use our Argo Tunnel'd and proxied connection to Cloudflare, we need to comment out the two existing server values, **#server=1.1.1.1 and #server=1.0.0.1** and replace them with **server=127.0.0.1#54**.
+
+Like so:
+
+```
+#server=1.1.1.1
+#server=1.0.0.1
+server=127.0.0.1#54
+```
+```
+CTRL + X then Y and Enter
+```
 
 Happy Adblocking :-)
    
