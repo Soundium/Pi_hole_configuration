@@ -80,7 +80,28 @@ Save the configuration file and exit nano.
 ```
 CTRL + X then Y and Enter
 ```
-14. 
+14. Now we need to update all of the packages if you haven't done so during the desktop GUI configuration process. Type:
+```
+sudo apt-get update
+sudo apt-get dist-upgrade
+```
+Wait for the updates to complete. Reboot after the updates, so type **sudo reboot**.
+
+15. To be more secure and get automated updates, we will install unattended-upgrades.
+```
+sudo apt-get install unattended-upgrades
+sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+```
+Add the following two lines just after the origin-Debian section, and comment out the Debian lines. 
+```
+"origin=Raspbian,codename=${distro_codename},label=Raspbian";
+"origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";
+```
+Save the configuration file and exit nano.
+```
+CTRL + X then Y and Enter
+```
+16. 
 
 ### Whitelist script Installation
 1. Download
