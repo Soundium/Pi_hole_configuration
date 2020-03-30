@@ -87,7 +87,9 @@ sudo apt-get dist-upgrade
 ```
 Wait for the updates to complete. Reboot after the updates, so type **sudo reboot**.
 
-15. To be more secure and get automated updates, we will install unattended-upgrades.
+15. To be more secure and get automated updates, we will install:
+
+- unattended-upgrades
 ```
 sudo apt-get install unattended-upgrades
 sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
@@ -101,7 +103,29 @@ Save the configuration file and exit nano.
 ```
 CTRL + X then Y and Enter
 ```
+- auto-upgrades
+```
+sudo nano /etc/apt/apt.conf.d/20auto-upgrades
+```
+Delete the existing lines and paste this in:
+```
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Download-Upgradeable-Packages "1";
+APT::Periodic::Unattended-Upgrade "1";
+APT::Periodic::Verbose "1";
+APT::Periodic::AutocleanInterval "7";
+```
+Save the configuration file and exit nano.
+```
+CTRL + X then Y and Enter
+```
+To enable unattended updates type:
+```
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+```
+
 16. 
+
 
 ### Whitelist script Installation
 1. Download
@@ -109,7 +133,7 @@ CTRL + X then Y and Enter
 cd /opt/
 sudo git clone https://github.com/Soundium/Pi_hole_Whitelist.git
 ```
-2. Make the script to run the script at 1AM every day.
+2. Make the script to run the script at 1 AM every day.
 
 `sudo nano /etc/crontab`
 
