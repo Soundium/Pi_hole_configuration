@@ -184,36 +184,36 @@ https://dbl.oisd.nl/
 19. With all those blocked domains, there are a few we want whitelisted to prevent possible web surfing issues. So let's install whitelist script. Or don't whitelist anything until you run into a problem and then try to resolve it on the spot.
 
 **### Whitelist script Installation**
-1. Download
+- Download
 ```
 cd /opt/
 sudo git clone https://github.com/Soundium/Pi_hole_Whitelist.git
 ```
-2. Make the script to run the script at 1 AM every day.
+- Make the script to run the script at 1 AM every day.
 
 `sudo nano /etc/crontab`
 
-Add this line at the end of the file:       
+- Add this line at the end of the file:       
 `0 1 * * *   root    /opt/Pi_hole_Whitelist/scripts/whitelist.sh`
 
 CTRL + X then Y and Enter
 
-3. First run
+- First run
 ```
 sudo /opt/Pi_hole_Whitelist/scripts/whitelist.sh
 ```  
 20. If you want to automate Youtube advertising block, let's install the following script. If you don't need it, please skip this section.
 
-### Youtube advertising blocker script Installation
+**### Youtube advertising blocker script Installation**
 
-1. Register on <a href="https://www.wolframalpha.com/">Wolfram Alpha</a> and get your APPID. 
-2. Download scripts.
+- Register on <a href="https://www.wolframalpha.com/">Wolfram Alpha</a> and get your APPID. 
+- Download scripts.
 ```
 cd /opt/
 git clone https://github.com/Soundium/Pi_hole_youtube_blocklist.git
 cd Pi_hole_youtube_blocklist/scripts
 ```
-3. Add your APPID to temp.sh. 
+- Add your APPID to temp.sh. 
 ```
 sudo nano /opt/Pi_hole_youtube_blocklist/scripts/temp.sh
 ```
@@ -223,27 +223,30 @@ APPID="Register on https://www.wolframalpha.com/ and put your APPID here"
 ```
 CTRL + X then Y and Enter
 
-4. Give the rights.
+- Give the rights.
 ```
 sudo chmod +x /opt/Pi_hole_youtube_blocklist/scripts/temp.sh
 ```
-5. Add scripts to crontab to run at 1 AM and 5 AM every day.
+- Add scripts to crontab to run at 1 AM and 5 AM every day.
 
 `sudo nano /etc/crontab`
 
-Add those lines at the end of the file:       
+- Add those lines at the end of the file:
+
 `0 1 * * *      root    /opt/Pi_hole_youtube_blocklist/scripts/temp.sh`
 
 `0 5 * * *      root    /opt/Pi_hole_youtube_blocklist/scripts/youtube-ads.sh`
-
+```
 CTRL + X then Y and Enter
-
-6. First run
+```
+- First run
 ```
 sudo Pi_hole_youtube_blocklist/scripts/temp.sh
 sudo Pi_hole_youtube_blocklist/scripts/youtube-ads.sh
 ```
-7. Add http://localhost/youtube.txt as blacklist from local to Pi-hole setup.
+- Add http://localhost/youtube.txt as blacklist from local to Pi-hole setup.
+
+21. 
 
 Happy Adblocking :-)
    
