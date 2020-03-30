@@ -4,13 +4,31 @@
 Follow my instructions and make your setup **trouble-free!**
                 
 Want to report any issue? Feel free to file an <a href="https://github.com/Soundium/Pi_hole_configuration/issues">issue</a>.
-
+***
 ### My hardware
-
+***
 ### Raspberry Pi 4 Installation
 
 
-           
+### Whitelist script Installation
+1. Download
+```
+cd /opt/
+sudo git clone https://github.com/Soundium/Pi_hole_Whitelist.git
+```
+2. Make the script to run the script at 1AM every day.
+
+`sudo nano /etc/crontab`
+
+Add this line at the end of the file:       
+`0 1 * * *   root    /opt/Pi_hole_Whitelist/scripts/whitelist.sh`
+
+CTRL + X then Y and Enter
+
+3. First run
+```
+sudo /opt/Pi_hole_Whitelist/scripts/whitelist.sh
+```         
 ### Youtube blocker script Installation
 
 1. Register on <a href="https://www.wolframalpha.com/">Wolfram Alpha</a> and get your APPID. 
