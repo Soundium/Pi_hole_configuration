@@ -54,11 +54,11 @@ sudo raspi-config
 ```
 12. At a minimum, consider configuring the following items with the tool. If you ran through the configuration with the desktop GUI using the keyboard and monitor, most of this would have already been done. 
 
-Change password (menu 1): very important
-Network options (menu 2): Change hostname (optional) 
-Boot options (menu 3): console autologin (optional, bad for security, good for ease of use)
-Localisation options (menu 4): keyboard layout, timezone (important) 
-Interface options (menu 5): Enable ssh
+-Change password (menu 1): very important
+-Network options (menu 2): Change hostname (optional) 
+-Boot options (menu 3): console autologin (optional, bad for security, good for ease of use)
+-Localisation options (menu 4): keyboard layout, timezone (important) 
+-Interface options (menu 5): Enable ssh
 
 13. Next, we should configure the Raspberry Pi for a static IP address. You can do this two ways. 
 - One, create a reservation in your router (**prefered**)
