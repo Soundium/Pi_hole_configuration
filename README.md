@@ -6,6 +6,11 @@ Follow my instructions and make your setup **trouble-free!**
 Want to report any issue? Feel free to file an <a href="https://github.com/Soundium/Pi_hole_configuration/issues">issue</a>.
 ***
 ### My hardware
+- <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4 Computer Modell B, 4GB RAM</a>
+- <a href="https://www.raspberrypi.org/products/poe-hat/">Power over Ethernet (PoE) HAT für Raspberry Pi 4 & 3B+, Rev. 1.01</a>
+- <a href="https://www.amazon.de/SanDisk-SDSQXCG-032G-GN6MA-Extreme-Adapter-Schwarz/dp/B06XYHN68L">SanDisk Extreme Pro microSDHC A1 UHS-I U3 Speicherkarte + Adapter 32GB</a>
+- <a href="https://www.jacob.de/produkte/aluminium-gehaeuse-fuer-rpi4-aluc-si-artnr-6009241.html">Aluminium Gehäuse für Raspberry Pi 4 Modell B, silber</a>
+
 ***
 ### Raspberry Pi 4 Installation
 
@@ -69,6 +74,8 @@ sudo Pi_hole_youtube_blocklist/scripts/temp.sh
 sudo Pi_hole_youtube_blocklist/scripts/youtube-ads.sh
 ```
 7. Add http://localhost/youtube.txt as blacklist from local to Pi-hole setup.
+
+Happy Adblocking :-)
    
 ***     
 
