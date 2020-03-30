@@ -7,7 +7,7 @@ Want to report any issue? Feel free to file an <a href="https://github.com/Sound
 ***
 ### My hardware
 - <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4 Computer Modell B, 4GB RAM</a>
-- <a href="https://www.raspberrypi.org/products/poe-hat/">Power over Ethernet (PoE) HAT für Raspberry Pi 4 & 3B+, Rev. 1.01</a>
+- <a href="https://www.raspberrypi.org/products/poe-hat/">Power over Ethernet (PoE) HAT for Raspberry Pi 4 & 3B+, Rev. 1.01</a>
 - <a href="https://www.amazon.de/SanDisk-SDSQXCG-032G-GN6MA-Extreme-Adapter-Schwarz/dp/B06XYHN68L">SanDisk Extreme Pro microSDHC A1 UHS-I U3 Card + Adapter 32GB</a>
 - <a href="https://www.jacob.de/produkte/aluminium-gehaeuse-fuer-rpi4-aluc-si-artnr-6009241.html">Aluminium Gehäuse für Raspberry Pi 4 Modell B, silber</a>
 
@@ -17,6 +17,15 @@ The Raspberry Pi uses an SD card for local storage, and as such, it's essential 
 ***
 ### Raspberry Pi 4 Installation
 
+ 1. Download the latest version of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Buster with desktop and recommended software</a>. Do NOT unzip it.
+
+2. Download and install ​Etcher.io, which we will use to write the Raspbian lite image to the SD card. There are both PC and Mac versions.
+
+3. Connect your card reader and insert the microSD card. Warning: contents will be over-written!
+
+4. Start Etcher, click "Select Image" and find the Raspbian Lite zip file you downloaded.
+
+5. Click "Flash!" and wait for the zip to be written to the memory card and the validation to complete. If an error occurs, make sure the card reader/card is not locked. If it's not locked, possibly the download is corrupted or not complete. Try and re-download the Raspbian Lite zip. 
 
 ### Whitelist script Installation
 1. Download
