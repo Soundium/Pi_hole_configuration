@@ -232,8 +232,10 @@ sudo nano /opt/Pi_hole_youtube_blocklist/scripts/temp.sh
 # Wolfram Alfa APPID
 APPID="Register on https://www.wolframalpha.com/ and put your APPID here"
 ```
+Save the configuration file and exit nano.
+```
 CTRL + X then Y and Enter
-
+```
 - Give the rights.
 ```
 sudo chmod +x /opt/Pi_hole_youtube_blocklist/scripts/temp.sh
@@ -307,6 +309,7 @@ KillMode=process
 [Install]
 WantedBy=multi-user.target
 ```
+Save the configuration file and exit nano.
 ```
 CTRL + X then Y and Enter
 ```
@@ -325,7 +328,7 @@ Next, we need to configure Pi-Hole to use this new functionality.
 ```
 sudo nano /etc/dnsmasq.d/01-pihole.conf
 ```
-In this file, if we want to use our Argo Tunnel'd and proxied connection to Cloudflare, we need to comment out the two existing server values, **#server=1.1.1.1 and #server=1.0.0.1** and replace them with **server=127.0.0.1#54**.
+In this file, if we want to use our Argo Tunnel'd and proxied connection to Cloudflare, we need to comment out the two existing server values, **#server=1.1.1.1 and #server=1.0.0.1**, replace them with **server=127.0.0.1#54** and add additional command.
 
 Like so:
 
@@ -333,12 +336,39 @@ Like so:
 #server=1.1.1.1
 #server=1.0.0.1
 server=127.0.0.1#54
+server=/use-application-dns.net/
 ```
+Save the configuration file and exit nano.
+```
+CTRL + X then Y and Enter
+```
+Next, we need to edit the following file:
+```
+sudo nano /etc/pihole/setupVars.conf
+```
+Simply comment out the two DNS entries:
+```
+#PIHOLE_DNS_1=1.1.1.1
+#PIHOLE_DNS_2=1.0.0.1
+```
+Save the configuration file and exit nano.
 ```
 CTRL + X then Y and Enter
 ```
 
-Happy Adblocking :-)
+Last, restart the DNS service:
+```
+sudo systemctl restart pihole-FTL.service
+```
+Our Pi-Hole will now send all DNS requests to cloudflared which runs as our DoH proxy over an encrypted tunnel directly to Cloudflare.
+
+We can test this to check our work. Start with https://www.dnsleaktest.com/ --> it will tell us right away. You may see more than one DNS server listed and that’s okay just as long as Cloudflare is listed under ISP. You were successful!
+
+Next, we can test our work against Cloudflare: https://1.1.1.1/help. 
+
+Whatever the steps involved, it's worthwhile to use Pi-Hole as the authoritative DNS server on the network and watch the statistics roll in. This fantastic tool helps improve performance and improves our privacy and that of our friends, teams, and families.
+
+Happy Adblocking and stay safe :-)
    
 
 ***
