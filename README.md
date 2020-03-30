@@ -67,7 +67,16 @@ Interface options (menu 5): Enable ssh
 ```
 sudo nano dhcpcd.conf
 ```
-Uncomment the line under # Example static IP configuration and fill in the proper IPs. You don't need an IPv6 address so that that line can be left commented. Save the configuration file and exit nano.
+Uncomment the line under # Example static IP configuration and fill in the proper IPs. You don't need an IPv6 address so that that line can be left commented. 
+
+Example:
+```
+interface eth0
+static ip_address=192.168.1.11/24
+static routers=192.168.1.254
+static domain_name_servers=192.168.1.2
+```
+Save the configuration file and exit nano.
 ```
 CTRL + X then Y and Enter
 ```
