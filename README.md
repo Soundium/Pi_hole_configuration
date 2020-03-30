@@ -36,10 +36,15 @@ The Raspberry Pi uses an SD card for local storage, and as such, it's essential 
 .>ssh
 ```
 
-- **On a Mac computer** CD to the Fat32 partition (e.g. cd /Volumes/boot) and type: touch ssh
+- **On a Mac computer** CD to the Fat32 partition (e.g. cd /Volumes/boot) and type: **touch ssh**
 
 9. Cleanly unmount the microSD card. Yes, don't pull it out! Insert the microSD card into the Raspberry Pi. 
 
+10. Connect your Raspberry Pi to a suitable power source. Since there's no power switch, it will start to immediately boot. 
+
+- If you have a monitor and keyboard attached when booting the first time, a helpful GUI wizard will appear to walk you through the configuration of items such as locale, keyboard, timezone, new password, software updates, etc. 
+
+- If you are doing the setup 'headless', wait a couple of minutes for the system to boot. Using a network scanning app find your "Raspberry Pi" IP. Or if you get lucky, you can open a terminal and type **ping raspberry.pi** and see if it responds.
 
 
 ### Whitelist script Installation
