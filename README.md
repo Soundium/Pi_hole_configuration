@@ -135,8 +135,17 @@ sudo apt install rpi-eeprom
 sudo rpi-eeprom-update
 ```
 
-17. 
+17. Package Removal
 
+Libreoffice is space hog on the Raspberry Pi 4, and likely you won't need it. Plus this makes your backups larger, so let's get rid of it. If you need it, please skip this section.
+
+```
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+```
+
+18.
 
 
 ### Whitelist script Installation
