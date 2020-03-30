@@ -3,14 +3,11 @@
           
 Follow my instructions and make your setup **trouble-free!**
 
-***     
+Want to report any issue? Feel free to file an <a href="https://github.com/Soundium/Pi_hole_configuration/issues">issue</a>.
 
+***     
 ### Donation
 All donations are welcome and will help me to maintain this project. Please use "**Sponsor**" button on the top of this page.
-
-***  
-                
-Want to report any issue? Feel free to file an <a href="https://github.com/Soundium/Pi_hole_configuration/issues">issue</a>.
 ***
 ### My hardware
 - <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4 Computer Modell B, 4GB RAM</a>
