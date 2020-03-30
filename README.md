@@ -183,7 +183,7 @@ https://dbl.oisd.nl/
 
 19. With all those blocked domains, there are a few we want whitelisted to prevent possible web surfing issues. So let's install whitelist script. Or don't whitelist anything until you run into a problem and then try to resolve it on the spot.
 
-### Whitelist script Installation
+**### Whitelist script Installation**
 1. Download
 ```
 cd /opt/
