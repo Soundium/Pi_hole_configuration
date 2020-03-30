@@ -2,6 +2,13 @@
 ## How-to: Pi-Hole Plus DNSCrypt Setup on Raspberry Pi 4 
           
 Follow my instructions and make your setup **trouble-free!**
+
+***     
+
+### Donation
+All donations are welcome and will help me to maintain this project. Please use "**Sponsor**" button on the top of this page.
+
+***  
                 
 Want to report any issue? Feel free to file an <a href="https://github.com/Soundium/Pi_hole_configuration/issues">issue</a>.
 ***
@@ -250,10 +257,6 @@ sudo Pi_hole_youtube_blocklist/scripts/youtube-ads.sh
 
 Happy Adblocking :-)
    
-***     
-
-### Donation
-All donations are welcome and will help me to maintain this project. Please use "**Sponsor**" button on the top of this page.
 
 ***
 ### License
