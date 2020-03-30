@@ -46,6 +46,32 @@ The Raspberry Pi uses an SD card for local storage, and as such, it's essential 
 
 - If you are doing the setup 'headless', wait a couple of minutes for the system to boot. Using a network scanning app find your "Raspberry Pi" IP. Or if you get lucky, you can open a terminal and type **ping raspberry.pi** and see if it responds.
 
+11. SSH into the Raspberry Pi as user '**pi**' and open the configuration tool (default password is **raspberry**):
+
+```
+ssh pi@RaspberryIP
+sudo raspi-config
+```
+12. At a minimum, consider configuring the following items with the tool. If you ran through the configuration with the desktop GUI using the keyboard and monitor, most of this would have already been done. 
+
+Change password (menu 1): very important
+Network options (menu 2): Change hostname (optional) 
+Boot options (menu 3): console autologin (optional, bad for security, good for ease of use)
+Localisation options (menu 4): keyboard layout, timezone (important) 
+Interface options (menu 5): Enable ssh
+
+13. Next, we should configure the Raspberry Pi for a static IP address. You can do this two ways. 
+- One, create a reservation in your router (**prefered**)
+
+- or we can configure a static IP directly in the RPi. If you don't want to go the router route, enter the following command:
+```
+sudo nano dhcpcd.conf
+```
+Uncomment the line under # Example static IP configuration and fill in the proper IPs. You don't need an IPv6 address so that that line can be left commented. Save the configuration file and exit nano.
+```
+CTRL + X then Y and Enter
+```
+14. 
 
 ### Whitelist script Installation
 1. Download
