@@ -6,7 +6,8 @@ Follow my instructions and make your setup **trouble-free!**
 Want to report any issue? Feel free to file an <a href="https://github.com/Soundium/Pi_hole_configuration/issues">issue</a>.
 
 ***
-**### Additional Information**
+**Additional Information**
+
 Arguably, one of the friendliest way to encrypt DNS queries is using some tools from Cloudflare: <a href="https://www.cloudflare.com/products/argo-tunnel/">Argo Tunnel</a> and <a href="https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/">cloudflared</a>.
 
 **Argo Tunnel** creates an encrypted tunnel between the DNS server (in this case Pi-Hole) and Cloudflare’s nearest data centre without opening any publicly-accessible inbound ports on our server and/or firewall. **cloudflared** (the d at the end stands for daemon) is a small piece of software that runs on the server that acts as a proxy DNS service, a service that works in place of the way these are typically sent, sending all DNS queries through this private tunnel.
