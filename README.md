@@ -23,7 +23,7 @@ The Raspberry Pi uses an SD card for local storage, and as such, it's essential 
 
 3. Connect your card reader and insert the microSD card. Warning: contents will be overwritten!
 
-4. Start Etcher, click "Select Image" and find the Raspbian Lite zip file you downloaded.
+4. Start Etcher, click "Select Image" and find the Raspbian Buster zip file you downloaded.
 
 5. Click "Flash!" and wait for the zip to be written to the memory card and the validation to complete. If an error occurs, make sure the card reader/card is not locked. If it's not locked, possibly the download is corrupted or not complete. Try and re-download the Raspbian Buster zip. 
 
