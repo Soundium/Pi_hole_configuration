@@ -145,8 +145,43 @@ sudo apt-get clean
 sudo apt-get autoremove
 ```
 
-18.
+18. **Installing and Configuring Pi-Hole**
 
+SSH into your RPi and type:
+```
+curl -sSL https://install.pi-hole.net | bash
+```
+Walkthrough the text-based wizard and accept all of the default values. When it asks you for which DNS server to use, select one that you feel most comfortable with. Later, we will install and configure DNSCrypt, so it doesn't matter what you select now. Make sure at the end you write down the admin console password at the very end of the installer wizard.
+
+19. There are a lot of blocklists out there, but here are a few that should get you around 2M blocked domains. Login to Pi-Hole (http://YourIP/admin), click on Settings, then blocklists. Paste all at once the list below and click on 'Save and Update'. 
+
+```
+https://blocklist.site/app/dl/malware
+https://blocklist.site/app/dl/ransomware
+https://blocklist.site/app/dl/tracking
+https://blocklist.site/app/dl/fraud
+https://blocklist.site/app/dl/phishing
+https://v.firebog.net/hosts/AdguardDNS.txt
+https://1hos.cf
+https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
+https://hosts-file.net/grm.txt
+https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts
+https://raw.githubusercontent.com/StevenBlack/hosts/master/data/KADhosts/hosts
+https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts
+https://v.firebog.net/hosts/static/w3kbl.txt
+https://v.firebog.net/hosts/BillStearns.txt
+https://adaway.org/hosts.txt
+https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
+https://v.firebog.net/hosts/Easyprivacy.txt
+https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt
+https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
+https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+https://www.malwaredomainlist.com/hostslist/hosts.txt
+https://dbl.oisd.nl/
+```
+
+19. 
 
 ### Whitelist script Installation
 1. Download
