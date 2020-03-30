@@ -1,5 +1,5 @@
                
-## How-to: Pi-Hole Plus DNSCrypt Setup on Raspberry Pi 4 
+## How-to: Pi-Hole + DNSCrypt + Cloudflared DoH Setup on Raspberry Pi 4 
           
 Follow my instructions and make your setup **trouble-free!**
 
