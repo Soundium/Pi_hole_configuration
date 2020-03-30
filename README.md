@@ -124,7 +124,19 @@ To enable unattended updates type:
 sudo dpkg-reconfigure --priority=low unattended-upgrades
 ```
 
-16. 
+16. Update Raspberry Pi 4 EEPROM (Firmware)
+
+From time to time new Raspberry pi 4 EEPROM (firmware) may be available. This procedure will install an auto-updater and keep you on the latest firmware version. Run these commands below. If it says update required, then merely reboot your RPI with **sudo reboot** and the update will be installed. 
+
+```
+sudo apt update
+sudo apt full-upgrade
+sudo apt install rpi-eeprom
+sudo rpi-eeprom-update
+```
+
+17. 
+
 
 
 ### Whitelist script Installation
