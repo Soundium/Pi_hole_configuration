@@ -19,13 +19,28 @@ The Raspberry Pi uses an SD card for local storage, and as such, it's essential 
 
  1. Download the latest version of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Buster with desktop and recommended software</a>. Do NOT unzip it.
 
-2. Download and install ​Etcher.io, which we will use to write the Raspbian lite image to the SD card. There are both PC and Mac versions.
+2. Download and install <a href="https://www.balena.io/etcher/">Etcher.io</a>, which we will use to write the Raspbian Buster image to the SD card. There are both PC and Mac versions.
 
-3. Connect your card reader and insert the microSD card. Warning: contents will be over-written!
+3. Connect your card reader and insert the microSD card. Warning: contents will be overwritten!
 
 4. Start Etcher, click "Select Image" and find the Raspbian Lite zip file you downloaded.
 
-5. Click "Flash!" and wait for the zip to be written to the memory card and the validation to complete. If an error occurs, make sure the card reader/card is not locked. If it's not locked, possibly the download is corrupted or not complete. Try and re-download the Raspbian Lite zip. 
+5. Click "Flash!" and wait for the zip to be written to the memory card and the validation to complete. If an error occurs, make sure the card reader/card is not locked. If it's not locked, possibly the download is corrupted or not complete. Try and re-download the Raspbian Buster zip. 
+
+**Note:** If you are doing this on a Windows computer, you may get a pop-up about needing to format a drive. This is erroneous, dismiss it and click Cancel.
+
+7. There is a small Fat32 partition in which we need to create a zero byte file called ssh. 
+  - **On Windows**, open a command prompt, CD to the Fat32 partition and enter the following command (ignore the output error..that is expected). If you don't see a drive letter associated with the Fat32 partition, open Disk Manager and assign it a letter. Enter:
+
+```
+.>ssh
+```
+
+- **On a Mac computer** CD to the Fat32 partition (e.g. cd /Volumes/boot) and type: touch ssh
+
+9. Cleanly unmount the microSD card. Yes, don't pull it out! Insert the microSD card into the Raspberry Pi. 
+
+
 
 ### Whitelist script Installation
 1. Download
