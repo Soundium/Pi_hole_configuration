@@ -164,6 +164,12 @@ curl -sSL https://install.pi-hole.net | bash
 ```
 Walkthrough the text-based wizard and accept all of the default values. When it asks you for which DNS server to use, select one that you feel most comfortable with. Later, we will install and configure Cloudflared DoH, so it doesn't matter what you select now. Make sure at the end you write down the admin console password at the very end of the installer wizard.
 
+Before connecting to the UI, we’ll run a configuration command to set the password to what we want.
+```
+sudo pihole -a -p
+```
+This will ask you to set a new password.
+
 19. There are a lot of blocklists out there, but here are a few that should get you around 2M blocked domains. Login to Pi-Hole (http://YourIP/admin), click on Settings, then blocklists. Paste all at once the list below and click on 'Save and Update'. 
 
 ```
