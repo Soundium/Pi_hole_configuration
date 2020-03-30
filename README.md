@@ -181,7 +181,7 @@ https://www.malwaredomainlist.com/hostslist/hosts.txt
 https://dbl.oisd.nl/
 ```
 
-19. 
+19. With all those blocked domains, there are a few we want whitelisted to prevent possible web surfing issues. So let's install whitelist script. Or don't whitelist anything until you run into a problem and then try to resolve it on the spot.
 
 ### Whitelist script Installation
 1. Download
@@ -201,8 +201,10 @@ CTRL + X then Y and Enter
 3. First run
 ```
 sudo /opt/Pi_hole_Whitelist/scripts/whitelist.sh
-```         
-### Youtube blocker script Installation
+```  
+20. If you want to automate Youtube advertising block, let's install the following script. If you don't need it, please skip this section.
+
+### Youtube advertising blocker script Installation
 
 1. Register on <a href="https://www.wolframalpha.com/">Wolfram Alpha</a> and get your APPID. 
 2. Download scripts.
